@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
-	"go.googlesource.com/go/src/pkg/strconv"
+	"strconv"
 )
 
 var part = flag.Int("p", 1, "-p [12]")
@@ -192,7 +192,6 @@ func part2(s *state, c <-chan string) stateFn {
 
 	for i:=1;i<=25;i++ {
 		decrypted := caesar(str, i)
-		fmt.Println(decrypted)
 		if strings.Contains(decrypted, "north") {
 			s.answer = getSectorId(decrypted)
 			return nil
